@@ -1,11 +1,11 @@
-import { BotaoSecundario } from "../Ui/BotaoSecundario";
-import { BotaoPrincipal } from "../Ui/BotaoPrincipal";
-import InputPadrao from "../Ui/InputPadrao";
-import ScrollRevealAvancado from "../Ui/ScrollRevealAvancado";
+import { BotaoSecundario } from "../Ui/Botao/BotaoSecundario";
+import { BotaoPrincipal } from "../Ui/Botao/BotaoPrincipal";
+import InputPadrao from "../Ui/Input/InputPadrao";
+import ScrollRevealAvancado from "../Ui/Geral/ScrollRevealAvancado";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-import ErroPadrao from "../Ui/ErroPadrao";
+import ErroPadrao from "../Ui/Erro/ErroPadrao";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ export default function Login() {
   );
 
   const enviarLogin = async (e) => {
-    e.preventDefault(); // previne reload da página
+    e.preventDefault();
     setCarregando(true);
     setErro("");
 
@@ -46,6 +46,7 @@ export default function Login() {
 
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("email", email);
+      localStorage.setItem("horaLogin", new Date().toLocaleString());
       navigate("/principal");
     } catch (error) {
       console.error("Erro no login:", error);

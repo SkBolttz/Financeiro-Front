@@ -4,7 +4,8 @@ import Login from "./assets/Componentes/Login";
 import Cadastro from "./assets/Componentes/Cadastro";
 import RecuperarSenha from "./assets/Componentes/RecuperarSenha";
 import Principal from "./assets/Componentes/Principal";
-import Header from "./assets/Componentes/Header";
+import PerfilUsuario from "./assets/Componentes/Perfil";
+import Dashboards from "./assets/Componentes/Dashboard";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/recuperar-senha" element={<RecuperarSenha />} />
           <Route path="/principal" element={<Principal />} />
-
+          <Route path="/perfil" element={<PerfilUsuario />} />
+          <Route path="/dashboards" element={<Dashboards />} />
         </Routes>
       </div>
     </Router>

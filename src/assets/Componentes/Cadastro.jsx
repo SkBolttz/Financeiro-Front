@@ -1,12 +1,11 @@
-import { BotaoSecundario } from "../Ui/BotaoSecundario";
-import { BotaoPrincipal } from "../Ui/BotaoPrincipal";
-import InputPadrao from "../Ui/InputPadrao";
-import ScrollRevealAvancado from "../Ui/ScrollRevealAvancado";
+import { BotaoPrincipal } from "../Ui/Botao/BotaoPrincipal";
+import InputPadrao from "../Ui/Input/InputPadrao";
+import ScrollRevealAvancado from "../Ui/Geral/ScrollRevealAvancado";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import ErroPadrao from "../Ui/ErroPadrao";
-import SucessoPadrao from "../Ui/SucessoPadrao";
+import ErroPadrao from "../Ui/Erro/ErroPadrao";
+import SucessoPadrao from "../Ui/Erro/SucessoPadrao";
 
 export default function Cadastro() {
   const navigate = useNavigate();

@@ -1,7 +1,6 @@
-import { BotaoSecundario } from "../Ui/BotaoSecundario";
-import { BotaoPrincipal } from "../Ui/BotaoPrincipal";
-import InputPadrao from "../Ui/InputPadrao";
-import ScrollRevealAvancado from "../Ui/ScrollRevealAvancado";
+import { BotaoPrincipal } from "../Ui/Botao/BotaoPrincipal";
+import InputPadrao from "../Ui/Input/InputPadrao";
+import ScrollRevealAvancado from "../Ui/Geral/ScrollRevealAvancado";
 import Cadastro from "./Cadastro";
 import { useNavigate } from "react-router-dom";
 
