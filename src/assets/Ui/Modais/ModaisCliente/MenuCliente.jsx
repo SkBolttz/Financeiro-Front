@@ -96,7 +96,7 @@ export default function MenuCliente({
             onClick={handleAdicionar}
           >
             <img
-              src="../../../public/Adicionar.png"
+              src="/Adicionar.png"
               alt="Adicionar"
               className="w-[50px] h-[50px]"
             />
@@ -107,7 +107,7 @@ export default function MenuCliente({
             onClick={handleExcluir}
           >
             <img
-              src="../../../public/Apagar.png"
+              src="/Apagar.png"
               alt="Excluir"
               className="w-[50px] h-[50px]"
             />
@@ -118,7 +118,7 @@ export default function MenuCliente({
             onClick={handleEditar}
           >
             <img
-              src="../../../public/Editar.png"
+              src="/Editar.png"
               alt="Editar"
               className="w-[50px] h-[50px]"
             />

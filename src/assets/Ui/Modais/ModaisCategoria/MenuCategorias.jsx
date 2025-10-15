@@ -95,7 +95,7 @@ export default function MenuCategorias({
             }}
           >
             <img
-              src="../../../public/Adicionar.png"
+              src="/Adicionar.png"
               alt="Adicionar"
               className="w-[50px] h-[50px] translate-y-[12px] translate-x-[12px]"
             />
@@ -106,7 +106,7 @@ export default function MenuCategorias({
             onClick={handleExcluir}
           >
             <img
-              src="../../../public/Apagar.png"
+              src="/Apagar.png"
               alt="Excluir"
               className="w-[50px] h-[50px] translate-y-[12px] translate-x-[12px]"
             />
@@ -117,7 +117,7 @@ export default function MenuCategorias({
             onClick={handleEditar}
           >
             <img
-              src="../../../public/Editar.png"
+              src="/public/Editar.png"
               alt="Editar"
               className="w-[50px] h-[50px] translate-y-[12px] translate-x-[12px]"
             />
