@@ -55,7 +55,7 @@ export default function Cadastro() {
 
     try {
       const response = await axios.post(
-        "https://financeiro-production-e19f.up.railway.app/autenticacao/cadastro",
+        "https://financeiro-production-2b89.up.railway.app/autenticacao/cadastro",
         { nome, email, senha },
         {
           headers: {
