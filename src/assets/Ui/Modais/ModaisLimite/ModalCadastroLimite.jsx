@@ -14,7 +14,7 @@ export default function ModalCadastroLimite({ onClose }) {
 
     try {
       await axios.post(
-        "http://localhost:8082/limite/cadastrar",
+        "https://financeiro-production-2b89.up.railway.app/limite/cadastrar",
         { usuario: { id: usuarioId }, limite: limite, ativo: true },
         {
           headers: {

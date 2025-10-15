@@ -17,7 +17,7 @@ export default function ReceitasDespesasRecorrentes() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8082/dashboard/movimentacoes/recorrentes",
+          "https://financeiro-production-2b89.up.railway.app/dashboard/movimentacoes/recorrentes",
           {
             headers: {
               "Content-Type": "application/json",

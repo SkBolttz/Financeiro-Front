@@ -17,7 +17,7 @@ export default function TotalReceitasDespesasESaldo() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8082/dashboard/kpi/financeiro",
+          "https://financeiro-production-2b89.up.railway.app/dashboard/kpi/financeiro",
           {
             headers: {
               "Content-Type": "application/json",

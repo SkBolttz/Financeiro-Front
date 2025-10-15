@@ -35,7 +35,7 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        "https://financeiro-production-e19f.up.railway.app/autenticacao/login",
+        "https://financeiro-production-2b89.up.railway.app/autenticacao/login",
         { email, senha },
         {
           headers: {

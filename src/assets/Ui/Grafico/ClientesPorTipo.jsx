@@ -9,7 +9,7 @@ export default function ClientesPorTipo() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8082/dashboard/clientes/tipo",
+          "https://financeiro-production-2b89.up.railway.app/dashboard/clientes/tipo",
           {
             headers: {
               "Content-Type": "application/json",

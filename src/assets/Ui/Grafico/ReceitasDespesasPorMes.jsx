@@ -8,7 +8,7 @@ export default function ReceitasDespesasPorMes() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:8082/dashboard/movimentacoes/mensal", {
+        const res = await axios.get("https://financeiro-production-2b89.up.railway.app/dashboard/movimentacoes/mensal", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,

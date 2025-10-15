@@ -31,7 +31,7 @@ export default function EditarCliente({
   // Carregar dados do cliente
   const localizarClienteId = async () => {
     const token = localStorage.getItem("token");
-    const url = `http://localhost:8082/clientes/buscar/${encodeURIComponent(
+    const url = `https://financeiro-production-2b89.up.railway.app/clientes/buscar/${encodeURIComponent(
       clienteId
     )}`;
     try {

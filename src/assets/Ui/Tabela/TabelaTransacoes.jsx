@@ -6,7 +6,7 @@ export const TabelaTransacoes = () => {
   const carregarExtratosMovimentacoes = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8082/dashboard/extrato/movimentacao",
+        "https://financeiro-production-2b89.up.railway.app/dashboard/extrato/movimentacao",
         {
           headers: {
             "Content-Type": "application/json",

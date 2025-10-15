@@ -55,7 +55,7 @@ export default function ModalCadastrarMovimentacao({
 
   const listarClientes = async () => {
     const token = localStorage.getItem("token");
-    const url = "http://localhost:8082/clientes/listar/ativos";
+    const url = "https://financeiro-production-2b89.up.railway.app/clientes/listar/ativos";
     try {
       const response = await axios.get(url, {
         headers: {
@@ -75,7 +75,7 @@ export default function ModalCadastrarMovimentacao({
 
   const listarFornecedores = async () => {
     const token = localStorage.getItem("token");
-    const url = "http://localhost:8082/fornecedores/listar/ativos";
+    const url = "https://financeiro-production-2b89.up.railway.app/fornecedores/listar/ativos";
     try {
       const response = await axios.get(url, {
         headers: {

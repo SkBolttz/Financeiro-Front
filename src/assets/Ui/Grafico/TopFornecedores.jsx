@@ -17,7 +17,7 @@ export default function TopFornecedores() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8082/dashboard/fornecedores/top-movimentacoes",
+          "https://financeiro-production-2b89.up.railway.app/dashboard/fornecedores/top-movimentacoes",
           {
             headers: {
               "Content-Type": "application/json",

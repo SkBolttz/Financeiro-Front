@@ -37,7 +37,7 @@ export default function EditarFornecedores({
 
   const localizarFornecedorId = async () => {
     const token = localStorage.getItem("token");
-    const url = `http://localhost:8082/fornecedores/buscar/${encodeURIComponent(
+    const url = `https://financeiro-production-2b89.up.railway.app/fornecedores/buscar/${encodeURIComponent(
       fornecedorId
     )}`;
     try {

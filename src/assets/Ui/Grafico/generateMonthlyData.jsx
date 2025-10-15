@@ -11,7 +11,7 @@ export default function SimpleBarChart() {
     const resgatarDespesasAnual = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8082/dashboard/tendencia/gastos/despesas/anual",
+          "https://financeiro-production-2b89.up.railway.app/dashboard/tendencia/gastos/despesas/anual",
           {
             headers: {
               "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export default function SimpleBarChart() {
     const resgatarReceitasAnual = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8082/dashboard/tendencia/gastos/receita/anual",
+          "https://financeiro-production-2b89.up.railway.app/dashboard/tendencia/gastos/receita/anual",
           {
             headers: {
               "Content-Type": "application/json",

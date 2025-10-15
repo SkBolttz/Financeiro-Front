@@ -114,7 +114,7 @@ export default function Principal() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8082/usuario/resgatar/usuario",
+        "https://financeiro-production-2b89.up.railway.app/usuario/resgatar/usuario",
         { email },
         {
           headers: {
@@ -151,7 +151,7 @@ export default function Principal() {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.get(
-        "http://localhost:8082/categoria/listar/ativas",
+        "https://financeiro-production-2b89.up.railway.app/categoria/listar/ativas",
         {
           headers: {
             "Content-Type": "application/json",
@@ -181,8 +181,8 @@ export default function Principal() {
     const token = localStorage.getItem("token");
     const url =
       tipoCategoria === "RECEITA"
-        ? "http://localhost:8082/categoria/listar/receita/ativas"
-        : "http://localhost:8082/categoria/listar/despesa/ativas";
+        ? "https://financeiro-production-2b89.up.railway.app/categoria/listar/receita/ativas"
+        : "https://financeiro-production-2b89.up.railway.app/categoria/listar/despesa/ativas";
 
     try {
       const response = await axios.get(url, {
@@ -212,7 +212,7 @@ export default function Principal() {
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        "http://localhost:8082/categoria/cadastrar",
+        "https://financeiro-production-2b89.up.railway.app/categoria/cadastrar",
         { nome, tipo },
         {
           headers: {
@@ -244,7 +244,7 @@ export default function Principal() {
     const nomeCategoria = localStorage.getItem("categoriaSalva");
     try {
       await axios.put(
-        "http://localhost:8082/categoria/remover",
+        "https://financeiro-production-2b89.up.railway.app/categoria/remover",
         { nome: nomeCategoria },
         {
           headers: {
@@ -271,7 +271,7 @@ export default function Principal() {
     const idCategoria = localStorage.getItem("categoriaId");
     try {
       await axios.put(
-        "http://localhost:8082/categoria/editar",
+        "https://financeiro-production-2b89.up.railway.app/categoria/editar",
         { id: idCategoria, nome: categoriaInput, tipo: tipoCategoria },
         {
           headers: {
@@ -340,8 +340,8 @@ export default function Principal() {
 
     const url =
       dados.tipo === "RECEITA"
-        ? "http://localhost:8082/movimentacao/adicionar/receita"
-        : "http://localhost:8082/movimentacao/adicionar/despesa";
+        ? "https://financeiro-production-2b89.up.railway.app/movimentacao/adicionar/receita"
+        : "https://financeiro-production-2b89.up.railway.app/movimentacao/adicionar/despesa";
 
     const formData = new FormData();
 
@@ -409,8 +409,8 @@ export default function Principal() {
     const token = localStorage.getItem("token");
     const url =
       dados.tipo === "RECEITA"
-        ? "http://localhost:8082/movimentacao/editar/receita"
-        : "http://localhost:8082/movimentacao/editar/despesa";
+        ? "https://financeiro-production-2b89.up.railway.app/movimentacao/editar/receita"
+        : "https://financeiro-production-2b89.up.railway.app/movimentacao/editar/despesa";
 
     try {
       const movimentacao = {
@@ -483,8 +483,8 @@ export default function Principal() {
 
     const url =
       tipoCategoria === "RECEITA"
-        ? "http://localhost:8082/movimentacao/remover/receita"
-        : "http://localhost:8082/movimentacao/remover/despesa";
+        ? "https://financeiro-production-2b89.up.railway.app/movimentacao/remover/receita"
+        : "https://financeiro-production-2b89.up.railway.app/movimentacao/remover/despesa";
 
     try {
       await axios.put(
@@ -527,7 +527,7 @@ export default function Principal() {
       TODAS_MOVIMENTACOES_INATIVAS: "/listar/todas/movimentacoes/inativas",
     };
 
-    const url = `http://localhost:8082/movimentacao${
+    const url = `https://financeiro-production-2b89.up.railway.app/movimentacao${
       endpoints[filtroAtual] || "/listar/todas"
     }`;
 
@@ -556,7 +556,7 @@ export default function Principal() {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.get(
-        "http://localhost:8082/alerta/verificar/vencimento/amanha",
+        "https://financeiro-production-2b89.up.railway.app/alerta/verificar/vencimento/amanha",
         {
           headers: {
             "Content-Type": "application/json",
@@ -575,7 +575,7 @@ export default function Principal() {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.get(
-        "http://localhost:8082/alerta/alterar/vencimento/despesa",
+        "https://financeiro-production-2b89.up.railway.app/alerta/alterar/vencimento/despesa",
         {
           headers: {
             "Content-Type": "application/json",
@@ -593,7 +593,7 @@ export default function Principal() {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.get(
-        "http://localhost:8082/limite/verificar/limite",
+        "https://financeiro-production-2b89.up.railway.app/limite/verificar/limite",
         {
           headers: {
             "Content-Type": "application/json",
@@ -610,7 +610,7 @@ export default function Principal() {
   const listarFornecedores = async () => {
     const token = localStorage.getItem("token");
 
-    const url = "http://localhost:8082/fornecedores/listar/ativos";
+    const url = "https://financeiro-production-2b89.up.railway.app/fornecedores/listar/ativos";
     try {
       const response = await axios.get(url, {
         headers: {
@@ -632,7 +632,7 @@ export default function Principal() {
 
   const cadastrarFornecedor = async () => {
     const token = localStorage.getItem("token");
-    const url = "http://localhost:8082/fornecedores/adicionar";
+    const url = "https://financeiro-production-2b89.up.railway.app/fornecedores/adicionar";
 
     try {
       await axios.post(
@@ -680,7 +680,7 @@ export default function Principal() {
   const deletarFornecedor = async (idFornecedor) => {
     const token = localStorage.getItem("token");
 
-    const url = `http://localhost:8082/fornecedores/desativar/${idFornecedor}`;
+    const url = `https://financeiro-production-2b89.up.railway.app/fornecedores/desativar/${idFornecedor}`;
     try {
       await axios.put(
         url,
@@ -703,7 +703,7 @@ export default function Principal() {
 
   const editarFornecedorFunc = async (idFornecedor, fornecedor) => {
     const token = localStorage.getItem("token");
-    const url = `http://localhost:8082/fornecedores/editar/${idFornecedor}`;
+    const url = `https://financeiro-production-2b89.up.railway.app/fornecedores/editar/${idFornecedor}`;
 
     try {
       await axios.put(url, fornecedor, {
@@ -734,7 +734,7 @@ export default function Principal() {
   const listarClientes = async () => {
     const token = localStorage.getItem("token");
 
-    const url = "http://localhost:8082/clientes/listar/ativos";
+    const url = "https://financeiro-production-2b89.up.railway.app/clientes/listar/ativos";
     try {
       const response = await axios.get(url, {
         headers: {
@@ -756,7 +756,7 @@ export default function Principal() {
 
   const cadastrarCliente = async () => {
     const token = localStorage.getItem("token");
-    const url = "http://localhost:8082/clientes/adicionar";
+    const url = "https://financeiro-production-2b89.up.railway.app/clientes/adicionar";
 
     try {
       await axios.post(
@@ -801,7 +801,7 @@ export default function Principal() {
   const deletarCliente = async (idCliente) => {
     const token = localStorage.getItem("token");
 
-    const url = `http://localhost:8082/clientes/desativar/${idCliente}`;
+    const url = `https://financeiro-production-2b89.up.railway.app/clientes/desativar/${idCliente}`;
     try {
       await axios.put(
         url,
@@ -824,7 +824,7 @@ export default function Principal() {
 
   const editarClienteFunc = async (idCliente, cliente) => {
     const token = localStorage.getItem("token");
-    const url = `http://localhost:8082/clientes/editar/${idCliente}`;
+    const url = `https://financeiro-production-2b89.up.railway.app/clientes/editar/${idCliente}`;
 
     try {
       await axios.put(url, cliente, {

@@ -17,7 +17,7 @@ export default function TotalReceitasXDespesas() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8082/dashboard/movimentacoes/total",
+          "https://financeiro-production-2b89.up.railway.app/dashboard/movimentacoes/total",
           {
             headers: {
               "Content-Type": "application/json",

@@ -17,7 +17,7 @@ export default function TopClientes() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8082/dashboard/clientes/top-movimentacoes",
+          "https://financeiro-production-2b89.up.railway.app/dashboard/clientes/top-movimentacoes",
           {
             headers: {
               "Content-Type": "application/json",

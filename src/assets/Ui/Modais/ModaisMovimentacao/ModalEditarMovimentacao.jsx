@@ -93,7 +93,7 @@ export default function ModalEditarMovimentacao({
   // --- Listagem de clientes e fornecedores ---
   const listarClientes = async () => {
     const token = localStorage.getItem("token");
-    const url = "http://localhost:8082/clientes/listar/ativos";
+    const url = "https://financeiro-production-2b89.up.railway.app/clientes/listar/ativos";
     try {
       const response = await axios.get(url, {
         headers: {
@@ -113,7 +113,7 @@ export default function ModalEditarMovimentacao({
 
   const listarFornecedores = async () => {
     const token = localStorage.getItem("token");
-    const url = "http://localhost:8082/fornecedores/listar/ativos";
+    const url = "https://financeiro-production-2b89.up.railway.app/fornecedores/listar/ativos";
     try {
       const response = await axios.get(url, {
         headers: {
@@ -140,7 +140,7 @@ export default function ModalEditarMovimentacao({
     try {
       const token = localStorage.getItem("token");
       const idMov = localStorage.getItem("movimentacaoId");
-      const url = `http://localhost:8082/movimentacao/listar/movimentacao/${encodeURIComponent(
+      const url = `https://financeiro-production-2b89.up.railway.app/movimentacao/listar/movimentacao/${encodeURIComponent(
         idMov
       )}`;
 
@@ -417,7 +417,7 @@ export default function ModalEditarMovimentacao({
               </label>
               {anexoEntrada && typeof anexoEntrada === "string" && (
                 <a
-                  href={`http://localhost:8082/${anexoEntrada}`}
+                  href={`https://financeiro-production-2b89.up.railway.app/${anexoEntrada}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#FFFFFF] mr-[20px] no-underline hover:text-[#BBE7F6]"
@@ -441,7 +441,7 @@ export default function ModalEditarMovimentacao({
               </label>
               {anexoRestante && typeof anexoRestante === "string" && (
                 <a
-                  href={`http://localhost:8082/${anexoRestante}`}
+                  href={`https://financeiro-production-2b89.up.railway.app/${anexoRestante}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#FFFFFF] mr-[20px] no-underline hover:text-[#BBE7F6]"

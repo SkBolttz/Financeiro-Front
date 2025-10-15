@@ -8,7 +8,7 @@ export const TabelaDespesas = () => {
     const despesasPorCategoria = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8082/dashboard/despesas/por/categoria",
+          "https://financeiro-production-2b89.up.railway.app/dashboard/despesas/por/categoria",
           {
             headers: {
               "Content-Type": "application/json",

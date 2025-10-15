@@ -11,7 +11,7 @@ export default function ReceitasDespesasPorTipoPagamento() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8082/dashboard/movimentacoes/tipo-pagamento",
+          "https://financeiro-production-2b89.up.railway.app/dashboard/movimentacoes/tipo-pagamento",
           {
             headers: {
               "Content-Type": "application/json",

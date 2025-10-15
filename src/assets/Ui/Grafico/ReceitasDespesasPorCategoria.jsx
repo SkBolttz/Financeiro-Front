@@ -10,7 +10,7 @@ export default function ReceitasDespesasPorCategoria() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:8082/dashboard/movimentacoes/categoria", {
+        const res = await axios.get("https://financeiro-production-2b89.up.railway.app/dashboard/movimentacoes/categoria", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
