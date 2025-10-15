@@ -16,7 +16,7 @@ export default function PerfilUsuario() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8082/usuario/resgatar/usuario",
+        "https://financeiro-production-e19f.up.railway.app/usuario/resgatar/usuario",
         { email },
         {
           headers: {
@@ -40,7 +40,7 @@ export default function PerfilUsuario() {
   const resgatarLimiteAtual = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8082/limite/listar/limite/cliente",
+        "https://financeiro-production-e19f.up.railway.app/limite/listar/limite/cliente",
         {
           headers: {
             "Content-Type": "application/json",
