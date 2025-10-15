@@ -8,7 +8,7 @@ const Logo = () => (
   <div className="flex items-center justify-center pt-10 mb-5">
     <div className="w-[100px] h-[100px] rounded-full flex items-center justify-center">
       <img
-        src="../../../public/LogoTesteDois.png"
+        src="/LogoTesteDois.png"
         alt="Logo Gestão Financeira"
         className="w-[100px] h-[100px] rounded-full shadow-[0_10px_30px_-3px_#FFCE58,0_4px_6px_-2px_#FFCE58]"
       />
@@ -39,7 +39,7 @@ export default function RecuperarSenha() {
             className="text-[#FFFFFF] pt-[30px] translate-x-[-140px] flex cursor-pointer font-['Poppins']"
             onClick={() => navigate("/")}
           >
-            <img src="../../../public/SetaEsquerda.png" alt="SetaEsquerda" />
+            <img src="/SetaEsquerda.png" alt="SetaEsquerda" />
             <p className="translate-y-[2px]">Retorne para a tela de login</p>
           </div>
           <div className="px-10 mb-10 text-[#FFFFFF] p-[10px] m-[10px] gap-[10px] font-['Poppins']">

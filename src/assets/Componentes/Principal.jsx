@@ -919,7 +919,7 @@ useEffect(() => {
               className="flex flex-row items-center justify-center gap-2 text-[#FFFFFF] bg-[#FFCE58] disabled:opacity-50"
               disabled={contarPaginas === 0}
             >
-              <img src="../../../public/IconVoltar.png" alt="Voltar" />
+              <img src="/IconVoltar.png" alt="Voltar" />
             </BotaoPrincipal>
           </div>
 
@@ -937,7 +937,7 @@ useEffect(() => {
               className="flex flex-row items-center justify-center gap-2 text-[#FFFFFF] bg-[#FFCE58] disabled:opacity-50"
               disabled={contarPaginas >= totalPaginas - 1}
             >
-              <img src="../../../public/IconSeguir.png" alt="Seguir" />
+              <img src="/IconSeguir.png" alt="Seguir" />
             </BotaoPrincipal>
           </div>
         </div>

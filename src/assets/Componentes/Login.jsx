@@ -18,7 +18,7 @@ export default function Login() {
     <div className="flex items-center justify-center pt-10 mb-5">
       <div className="w-[100px] h-[100px] rounded-full flex items-center justify-center">
         <img
-          src="../../../public/LogoTesteDois.png"
+          src="f/LogoTesteDois.png"
           alt="Logo Gestão Financeira"
           className="w-[100px] h-[100px] rounded-full shadow-[0_10px_30px_-3px_#FFCE58,0_4px_6px_-2px_#FFCE58]"
         />
