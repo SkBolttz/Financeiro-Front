@@ -5,6 +5,7 @@ import ScrollRevealAvancado from "../Ui/Geral/ScrollRevealAvancado";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import ErroPadrao from "../Ui/Erro/ErroPadrao";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -14,8 +15,8 @@ export default function Login() {
   const [erro, setErro] = useState("");
 
   const Logo = () => (
-    <div className="flex items-center justify-center pt-10 mb-5">
-      <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full flex items-center justify-center">
+    <div className="flex items-center justify-center pt-4 sm:pt-10 mb-2 sm:mb-5">
+      <div className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] rounded-full flex items-center justify-center">
         <img
           src="/LogoTesteDois.png"
           alt="Logo Gestão Financeira"
@@ -30,11 +31,17 @@ export default function Login() {
     setCarregando(true);
     setErro("");
 
+    console.log("Função enviarLogin chamada:", { email, senha });
+
     try {
       const response = await axios.post(
         "https://financeiro-production-2b89.up.railway.app/autenticacao/login",
         { email, senha },
-        { headers: { "Content-Type": "application/json" } }
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
 
       localStorage.setItem("token", response.data.token);
@@ -42,76 +49,90 @@ export default function Login() {
       localStorage.setItem("horaLogin", new Date().toLocaleString());
       navigate("/principal");
     } catch (error) {
-      if (error.response) setErro("Email ou senha incorretos!");
-      else if (error.request) setErro("Servidor não respondeu. Tente novamente.");
-      else setErro("Erro inesperado: " + error.message);
+      console.error("Erro no login:", error);
+
+      if (error.response) {
+        setErro("Email ou senha incorretos!");
+      } else if (error.request) {
+        setErro("Servidor não respondeu. Tente novamente.");
+      } else {
+        setErro("Erro inesperado: " + error.message);
+      }
     } finally {
       setCarregando(false);
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#ACBAFF] to-[#4741A6] p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-[#ACBAFF] to-[#4741A6] p-2 sm:p-4">
       <ScrollRevealAvancado delay={300}>
         <div className="fixed inset-0 w-full h-full animate-gradient-slow z-0"></div>
-
-        <div className="relative w-full max-w-[600px] sm:max-w-[90%] h-auto sm:h-auto pt-6 sm:pt-8 px-4 sm:px-6 md:px-10 rounded-3xl bg-gradient-to-t from-[#ACBAFF] to-[#4741A6] flex flex-col items-center z-10 shadow-2xl shadow-[#ACBAFF] shadow-[0_10px_30px_-3px_#ACBAFF,0_8px_8px_-4px_#ACBAFF]">
-
-          <Logo />
-
-          <div className="flex flex-col items-center justify-center pt-4 sm:pt-6 text-center">
-            <h1 className="text-[#FFFFFF] font-['Antonio'] text-3xl sm:text-4xl md:text-[60px]">
+        <div className="relative w-full max-w-[350px] sm:max-w-[600px] h-auto min-h-[600px] sm:min-h-[780px] p-4 sm:p-8 rounded-3xl bg-gradient-to-t from-[#ACBAFF] to-[#4741A6] flex flex-col items-center z-10 shadow-2xl rounded-[20px] shadow-[#ACBAFF] shadow-[0_10px_30px_-3px_#ACBAFF,0_8px_8px_-4px_#ACBAFF]">
+          <div className="pt-4 sm:pt-[30px] shadow-lg">
+            <Logo />
+          </div>
+          <div className="flex flex-col items-center justify-center pt-4 sm:pt-[30px]">
+            <h1 className="text-[#FFFFFF] font-['Antonio'] text-3xl sm:text-5xl md:text-7xl">
               BEM-VINDO!
             </h1>
-            <p className="text-[#BBE7F6] text-lg sm:text-xl md:text-[25px] font-['Poppins'] mt-2">
+            <p className="flex items-center justify-center text-[#BBE7F6] text-base sm:text-xl md:text-[25px] font-['Poppins']">
               Faça seu login:
             </p>
           </div>
-
-          <form id="formLogin" onSubmit={enviarLogin} className="w-full mt-6">
-            <div className="flex flex-col gap-4 text-[#FFFFFF] font-['Poppins']">
-
-              {/* Email */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-[17px]">Email:</label>
-                <InputPadrao type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
+          <form id="formLogin" onSubmit={enviarLogin}>
+            <div className="w-full px-2 sm:px-10 mb-4 sm:mb-10 text-[#FFFFFF] font-['Poppins']">
+              <div className="flex flex-col gap-2 sm:gap-[10px] m-2 sm:m-[10px] p-2 sm:p-[10px]">
+                <label htmlFor="email" className="text-sm sm:text-[17px]">
+                  Email:
+                </label>
+                <InputPadrao
+                  type="email"
+                  name="email"
+                  id="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
-
-              {/* Senha */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="senha" className="text-[17px]">Senha:</label>
+              <div className="flex flex-col gap-2 sm:gap-[10px] m-2 sm:m-[10px] p-2 sm:p-[10px]">
+                <label htmlFor="senha" className="text-sm sm:text-[17px]">
+                  Senha:
+                </label>
                 <div>
-                  <InputPadrao type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} />
-                  <p className="text-[#BBE7F6] mt-1 text-sm sm:text-base cursor-pointer"
-                     onClick={() => navigate("/recuperar-senha", { replace: true })}>
+                  <InputPadrao
+                    type="password"
+                    name="senha"
+                    id="senha"
+                    onChange={(e) => setSenha(e.target.value)}
+                  />
+                  <p
+                    className="text-[#BBE7F6] m-1 sm:m-[5px] cursor-pointer text-xs sm:text-[17px]"
+                    onClick={() =>
+                      navigate("/recuperar-senha", { replace: true })
+                    }
+                  >
                     Esqueceu sua senha?
                   </p>
                 </div>
               </div>
-
-              {/* Botões */}
-              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-6">
-                <BotaoSecundario
-                  onClick={() => navigate("/cadastro", { replace: true })}
-                  className="bg-[#4741A6] text-[#BBE7F6] w-full sm:w-auto"
-                >
-                  CADASTRE-SE
-                </BotaoSecundario>
-
-                <BotaoPrincipal
-                  type="submit"
-                  disabled={carregando}
-                  className="bg-[#FCBF32] hover:bg-[#FFCE58] w-full sm:w-auto"
-                >
-                  {carregando ? "Entrando..." : "ENTRAR"}
-                </BotaoPrincipal>
+              <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4 mt-4 sm:mt-8">
+                <div className="w-full sm:w-auto">
+                  <BotaoSecundario
+                    onClick={() => navigate("/cadastro", { replace: true })}
+                    className="w-full sm:w-auto bg-[#4741A6] text-[#BBE7F6]"
+                  >
+                    CADASTRE-SE
+                  </BotaoSecundario>
+                </div>
+                <div className="w-full sm:w-auto mt-2 sm:mt-0">
+                  <BotaoPrincipal type="submit" disabled={carregando} className="w-full sm:w-auto bg-[#FCBF32] hover:bg-[#FFCE58]">
+                    {carregando ? "Entrando..." : "ENTRAR"}
+                  </BotaoPrincipal>
+                </div>
               </div>
-
-              {/* Mensagem de erro */}
-              <div className={`flex justify-center items-center bg-[#fad2b1] p-3 text-[#B23A2B] rounded-[10px] border border-[#ff7f7f] text-center text-base sm:text-lg mt-6 transition-opacity duration-500 ${erro ? "opacity-100" : "opacity-0"}`}>
+              <div
+                className={`flex justify-center items-center bg-[#fad2b1] p-2 sm:p-[10px] text-[#B23A2B] rounded-[10px] border border-[#ff7f7f] text-sm sm:text-[20px] font-[Poppins] w-full max-w-md mx-auto transition-opacity duration-1000 mt-4 sm:mt-[30px] ${erro ? "opacity-100" : "opacity-0"}`}
+              >
                 {erro}
               </div>
-
             </div>
           </form>
         </div>
