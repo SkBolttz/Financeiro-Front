@@ -564,7 +564,6 @@ export default function Principal() {
           },
         }
       );
-
       setAlertas((prev) => [...prev, ...response.data]);
     } catch (error) {
       console.error("Erro ao alertar vencimentos:", error);

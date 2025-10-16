@@ -28,7 +28,7 @@ export default function ReceitasDespesasRecorrentes() {
         const formatted = res.data.map((item) => ({
           descricao: item.descricao || "Sem descrição",
           valor: item.valor || 0,
-          proximaData: item.proximaData || "N/A",
+          proximaData: item.dataLancamentoRecorrenteProxima || "N/A",
           recorrencias: `${item.recorrenciasCriadas}/${item.totalRecorrencias}`,
         }));
 
