@@ -25,7 +25,6 @@ export default function ReceitasDespesasRecorrentes() {
             },
           }
         );
-        alert(res.data);
         const formatted = res.data.map((item) => ({
           descricao: item.descricao || "Sem descrição",
           valor: item.valor || 0,

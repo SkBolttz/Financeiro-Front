@@ -96,7 +96,7 @@ export default function TabelaMovimentacoes({
                 }}
               >
                 <img
-                  src="../../../public/Apagar.png"
+                  src="/Apagar.png"
                   alt="Excluir"
                   className="w-[50px] h-[50px] translate-y-[12px] translate-x-[12px]"
                 />
