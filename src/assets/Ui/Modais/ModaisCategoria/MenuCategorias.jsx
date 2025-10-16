@@ -117,7 +117,7 @@ export default function MenuCategorias({
             onClick={handleEditar}
           >
             <img
-              src="/public/Editar.png"
+              src="/Editar.png"
               alt="Editar"
               className="w-[50px] h-[50px] translate-y-[12px] translate-x-[12px]"
             />
