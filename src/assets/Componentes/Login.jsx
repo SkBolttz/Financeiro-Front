@@ -5,7 +5,6 @@ import ScrollRevealAvancado from "../Ui/Geral/ScrollRevealAvancado";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-import ErroPadrao from "../Ui/Erro/ErroPadrao";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -16,11 +15,11 @@ export default function Login() {
 
   const Logo = () => (
     <div className="flex items-center justify-center pt-10 mb-5">
-      <div className="w-[100px] h-[100px] rounded-full flex items-center justify-center">
+      <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full flex items-center justify-center">
         <img
           src="/LogoTesteDois.png"
           alt="Logo Gestão Financeira"
-          className="w-[100px] h-[100px] rounded-full shadow-[0_10px_30px_-3px_#FFCE58,0_4px_6px_-2px_#FFCE58]"
+          className="w-full h-full rounded-full shadow-[0_10px_30px_-3px_#FFCE58,0_4px_6px_-2px_#FFCE58]"
         />
       </div>
     </div>
@@ -56,39 +55,34 @@ export default function Login() {
       <ScrollRevealAvancado delay={300}>
         <div className="fixed inset-0 w-full h-full animate-gradient-slow z-0"></div>
 
-        <div className="relative w-full max-w-[600px] sm:max-w-[90%] h-[780px] sm:h-auto pt-8 sm:p-4 rounded-3xl bg-gradient-to-t from-[#ACBAFF] to-[#4741A6] flex flex-col items-center z-10 shadow-2xl shadow-[#ACBAFF] shadow-[0_10px_30px_-3px_#ACBAFF,0_8px_8px_-4px_#ACBAFF]">
+        <div className="relative w-full max-w-[600px] sm:max-w-[90%] h-auto sm:h-auto pt-6 sm:pt-8 px-4 sm:px-6 md:px-10 rounded-3xl bg-gradient-to-t from-[#ACBAFF] to-[#4741A6] flex flex-col items-center z-10 shadow-2xl shadow-[#ACBAFF] shadow-[0_10px_30px_-3px_#ACBAFF,0_8px_8px_-4px_#ACBAFF]">
 
-          {/* Logo */}
-          <div className="pt-[30px] shadow-lg w-full flex justify-center">
-            <Logo />
-          </div>
+          <Logo />
 
-          {/* Títulos */}
-          <div className="flex flex-col items-center justify-center pt-[30px] px-4 sm:px-6 md:px-10 text-center">
-            <h1 className="text-[#FFFFFF] font-['Antonio'] text-[60px] sm:text-[50px]">
+          <div className="flex flex-col items-center justify-center pt-4 sm:pt-6 text-center">
+            <h1 className="text-[#FFFFFF] font-['Antonio'] text-3xl sm:text-4xl md:text-[60px]">
               BEM-VINDO!
             </h1>
-            <p className="text-[#BBE7F6] text-[25px] sm:text-[22px] font-['Poppins'] mt-2">
-              Faça seu login:
+            <p className="text-[#BBE7F6] text-lg sm:text-xl md:text-[25px] font-['Poppins'] mt-2">
+              Faça seu login:
             </p>
           </div>
 
-          {/* Form */}
-          <form id="formLogin" onSubmit={enviarLogin} className="w-full px-4 sm:px-6 md:px-10 mt-6">
-            <div className="flex flex-col gap-[10px] text-[#FFFFFF] font-['Poppins']">
+          <form id="formLogin" onSubmit={enviarLogin} className="w-full mt-6">
+            <div className="flex flex-col gap-4 text-[#FFFFFF] font-['Poppins']">
 
               {/* Email */}
-              <div className="flex flex-col gap-[10px] m-[10px] p-[10px]">
+              <div className="flex flex-col gap-2">
                 <label htmlFor="email" className="text-[17px]">Email:</label>
                 <InputPadrao type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
               </div>
 
               {/* Senha */}
-              <div className="flex flex-col gap-[10px] m-[10px] p-[10px]">
+              <div className="flex flex-col gap-2">
                 <label htmlFor="senha" className="text-[17px]">Senha:</label>
                 <div>
                   <InputPadrao type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} />
-                  <p className="text-[#BBE7F6] m-[5px] cursor-pointer text-sm sm:text-base"
+                  <p className="text-[#BBE7F6] mt-1 text-sm sm:text-base cursor-pointer"
                      onClick={() => navigate("/recuperar-senha", { replace: true })}>
                     Esqueceu sua senha?
                   </p>
@@ -96,25 +90,25 @@ export default function Login() {
               </div>
 
               {/* Botões */}
-              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
-                <div className="translate-x-0 sm:translate-x-[22px] w-full sm:w-auto">
-                  <BotaoSecundario
-                    onClick={() => navigate("/cadastro", { replace: true })}
-                    className="bg-[#4741A6] text-[#BBE7F6] w-full sm:w-auto"
-                  >
-                    CADASTRE-SE
-                  </BotaoSecundario>
-                </div>
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-6">
+                <BotaoSecundario
+                  onClick={() => navigate("/cadastro", { replace: true })}
+                  className="bg-[#4741A6] text-[#BBE7F6] w-full sm:w-auto"
+                >
+                  CADASTRE-SE
+                </BotaoSecundario>
 
-                <div className="translate-x-0 sm:-translate-x-[22px] w-full sm:w-auto">
-                  <BotaoPrincipal type="submit" disabled={carregando} className="bg-[#FCBF32] hover:bg-[#FFCE58] w-full sm:w-auto">
-                    {carregando ? "Entrando..." : "ENTRAR"}
-                  </BotaoPrincipal>
-                </div>
+                <BotaoPrincipal
+                  type="submit"
+                  disabled={carregando}
+                  className="bg-[#FCBF32] hover:bg-[#FFCE58] w-full sm:w-auto"
+                >
+                  {carregando ? "Entrando..." : "ENTRAR"}
+                </BotaoPrincipal>
               </div>
 
               {/* Mensagem de erro */}
-              <div className={`flex justify-center items-center bg-[#fad2b1] p-[10px] text-[#B23A2B] rounded-[10px] border border-[#ff7f7f] text-[20px] max-w-md mx-auto mt-[30px] transition-opacity duration-1000 ${erro ? "opacity-100" : "opacity-0"}`}>
+              <div className={`flex justify-center items-center bg-[#fad2b1] p-3 text-[#B23A2B] rounded-[10px] border border-[#ff7f7f] text-center text-base sm:text-lg mt-6 transition-opacity duration-500 ${erro ? "opacity-100" : "opacity-0"}`}>
                 {erro}
               </div>
 
