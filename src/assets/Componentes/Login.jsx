@@ -15,7 +15,7 @@ export default function Login() {
   const [erro, setErro] = useState("");
 
   const Logo = () => (
-    <div className="flex items-center justify-center pt-8 mb-4">
+    <div className="flex items-center justify-center pt-10 mb-5">
       <div className="w-[100px] h-[100px] rounded-full flex items-center justify-center">
         <img
           src="/LogoTesteDois.png"
@@ -43,13 +43,9 @@ export default function Login() {
       localStorage.setItem("horaLogin", new Date().toLocaleString());
       navigate("/principal");
     } catch (error) {
-      if (error.response) {
-        setErro("Email ou senha incorretos!");
-      } else if (error.request) {
-        setErro("Servidor não respondeu. Tente novamente.");
-      } else {
-        setErro("Erro inesperado: " + error.message);
-      }
+      if (error.response) setErro("Email ou senha incorretos!");
+      else if (error.request) setErro("Servidor não respondeu. Tente novamente.");
+      else setErro("Erro inesperado: " + error.message);
     } finally {
       setCarregando(false);
     }
@@ -60,84 +56,68 @@ export default function Login() {
       <ScrollRevealAvancado delay={300}>
         <div className="fixed inset-0 w-full h-full animate-gradient-slow z-0"></div>
 
-        <div className="relative w-full max-w-[600px] sm:max-w-[500px] md:max-w-[600px] h-auto min-h-[600px] sm:min-h-[700px] pt-8 sm:p-4 rounded-3xl bg-gradient-to-t from-[#ACBAFF] to-[#4741A6] flex flex-col items-center z-10 shadow-2xl shadow-[#ACBAFF]">
-          
+        <div className="relative w-full max-w-[600px] sm:max-w-[90%] h-[780px] sm:h-auto pt-8 sm:p-4 rounded-3xl bg-gradient-to-t from-[#ACBAFF] to-[#4741A6] flex flex-col items-center z-10 shadow-2xl shadow-[#ACBAFF] shadow-[0_10px_30px_-3px_#ACBAFF,0_8px_8px_-4px_#ACBAFF]">
+
           {/* Logo */}
-          <div className="pt-4 shadow-lg w-full flex justify-center">
+          <div className="pt-[30px] shadow-lg w-full flex justify-center">
             <Logo />
           </div>
 
           {/* Títulos */}
-          <div className="flex flex-col items-center justify-center pt-4 px-4 sm:px-10">
-            <h1 className="text-4xl sm:text-5xl md:text-[60px] text-[#FFFFFF] font-['Antonio'] text-center">
+          <div className="flex flex-col items-center justify-center pt-[30px] px-4 sm:px-6 md:px-10 text-center">
+            <h1 className="text-[#FFFFFF] font-['Antonio'] text-[60px] sm:text-[50px]">
               BEM-VINDO!
             </h1>
-            <p className="text-lg sm:text-xl md:text-[25px] text-[#BBE7F6] font-['Poppins'] text-center mt-2">
-              Faça seu login:
+            <p className="text-[#BBE7F6] text-[25px] sm:text-[22px] font-['Poppins'] mt-2">
+              Faça seu login:
             </p>
           </div>
 
           {/* Form */}
-          <form id="formLogin" onSubmit={enviarLogin} className="w-full px-4 sm:px-10 mt-6">
-            <div className="flex flex-col gap-4">
+          <form id="formLogin" onSubmit={enviarLogin} className="w-full px-4 sm:px-6 md:px-10 mt-6">
+            <div className="flex flex-col gap-[10px] text-[#FFFFFF] font-['Poppins']">
+
               {/* Email */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-[17px] text-white">Email:</label>
-                <InputPadrao
-                  type="email"
-                  name="email"
-                  id="email"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+              <div className="flex flex-col gap-[10px] m-[10px] p-[10px]">
+                <label htmlFor="email" className="text-[17px]">Email:</label>
+                <InputPadrao type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
               </div>
 
               {/* Senha */}
-              <div className="flex flex-col gap-2">
-                <label htmlFor="senha" className="text-[17px] text-white">Senha:</label>
-                <div className="flex flex-col">
-                  <InputPadrao
-                    type="password"
-                    name="senha"
-                    id="senha"
-                    onChange={(e) => setSenha(e.target.value)}
-                  />
-                  <p
-                    className="text-[#BBE7F6] mt-1 cursor-pointer text-sm sm:text-base"
-                    onClick={() =>
-                      navigate("/recuperar-senha", { replace: true })
-                    }
-                  >
+              <div className="flex flex-col gap-[10px] m-[10px] p-[10px]">
+                <label htmlFor="senha" className="text-[17px]">Senha:</label>
+                <div>
+                  <InputPadrao type="password" name="senha" id="senha" onChange={(e) => setSenha(e.target.value)} />
+                  <p className="text-[#BBE7F6] m-[5px] cursor-pointer text-sm sm:text-base"
+                     onClick={() => navigate("/recuperar-senha", { replace: true })}>
                     Esqueceu sua senha?
                   </p>
                 </div>
               </div>
 
               {/* Botões */}
-              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-6">
-                <BotaoSecundario
-                  onClick={() => navigate("/cadastro", { replace: true })}
-                  className="bg-[#4741A6] text-[#BBE7F6] w-full sm:w-auto"
-                >
-                  CADASTRE-SE
-                </BotaoSecundario>
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
+                <div className="translate-x-0 sm:translate-x-[22px] w-full sm:w-auto">
+                  <BotaoSecundario
+                    onClick={() => navigate("/cadastro", { replace: true })}
+                    className="bg-[#4741A6] text-[#BBE7F6] w-full sm:w-auto"
+                  >
+                    CADASTRE-SE
+                  </BotaoSecundario>
+                </div>
 
-                <BotaoPrincipal
-                  type="submit"
-                  disabled={carregando}
-                  className="bg-[#FCBF32] hover:bg-[#FFCE58] w-full sm:w-auto"
-                >
-                  {carregando ? "Entrando..." : "ENTRAR"}
-                </BotaoPrincipal>
+                <div className="translate-x-0 sm:-translate-x-[22px] w-full sm:w-auto">
+                  <BotaoPrincipal type="submit" disabled={carregando} className="bg-[#FCBF32] hover:bg-[#FFCE58] w-full sm:w-auto">
+                    {carregando ? "Entrando..." : "ENTRAR"}
+                  </BotaoPrincipal>
+                </div>
               </div>
 
               {/* Mensagem de erro */}
-              {erro && (
-                <div
-                  className="flex justify-center items-center bg-[#fad2b1] p-3 text-[#B23A2B] rounded-[10px] border border-[#ff7f7f] text-center text-base sm:text-lg mt-6 transition-opacity duration-500"
-                >
-                  {erro}
-                </div>
-              )}
+              <div className={`flex justify-center items-center bg-[#fad2b1] p-[10px] text-[#B23A2B] rounded-[10px] border border-[#ff7f7f] text-[20px] max-w-md mx-auto mt-[30px] transition-opacity duration-1000 ${erro ? "opacity-100" : "opacity-0"}`}>
+                {erro}
+              </div>
+
             </div>
           </form>
         </div>
