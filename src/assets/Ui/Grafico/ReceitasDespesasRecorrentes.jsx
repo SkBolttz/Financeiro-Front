@@ -25,10 +25,12 @@ export default function ReceitasDespesasRecorrentes() {
             },
           }
         );
+
+        // Formata os dados para o gráfico
         const formatted = res.data.map((item) => ({
           descricao: item.descricao || "Sem descrição",
           valor: item.valor || 0,
-          proximaData: item.dataLancamentoRecorrenteProxima || "N/A",
+          proximaData: item.proximaData || "N/A",
           recorrencias: `${item.recorrenciasCriadas}/${item.totalRecorrencias}`,
         }));
 
@@ -40,22 +42,19 @@ export default function ReceitasDespesasRecorrentes() {
     fetchData();
   }, []);
 
-  const CustomTooltip = ({ active, payload, label }) => {
+  // Tooltip customizado
+  const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
-      const item = data.find((d) => d.descricao === label);
+      const item = payload[0].payload;
       return (
         <div className="bg-white border border-gray-300 rounded p-2 shadow-md">
-          <p className="font-semibold text-sm">{`Descrição: ${label}`}</p>
-          <p className="text-sm text-gray-600">{`Valor: R$ ${payload[0].value.toLocaleString(
+          <p className="font-semibold text-sm">{`Descrição: ${item.descricao}`}</p>
+          <p className="text-sm text-gray-600">{`Valor: R$ ${item.valor.toLocaleString(
             "pt-BR",
             { minimumFractionDigits: 2 }
           )}`}</p>
-          <p className="text-sm text-gray-600">{`Próxima data: ${
-            item?.proximaData || "N/A"
-          }`}</p>
-          <p className="text-sm text-gray-600">{`Recorrência: ${
-            item?.recorrencias || "N/A"
-          }`}</p>
+          <p className="text-sm text-gray-600">{`Próxima data: ${item.proximaData}`}</p>
+          <p className="text-sm text-gray-600">{`Recorrência: ${item.recorrencias}`}</p>
         </div>
       );
     }
@@ -68,8 +67,7 @@ export default function ReceitasDespesasRecorrentes() {
         Receitas e Despesas Recorrentes
       </h3>
       <p className="text-[13px] font-[Poppins] text-center mb-4">
-        Movimentações fixas ou repetitivas. Controle custos e receitas
-        previsíveis.
+        Movimentações fixas ou repetitivas. Controle custos e receitas previsíveis.
       </p>
       <ResponsiveContainer width="100%" height={250}>
         <BarChart data={data}>
