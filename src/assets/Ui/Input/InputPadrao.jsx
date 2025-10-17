@@ -7,7 +7,7 @@ export default function InputPadrao({
   placeholder,
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1 sm:gap-2">
       <input
         type={type}
         name={name}
@@ -15,7 +15,7 @@ export default function InputPadrao({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="bg-[#BBE7F6] rounded-[10px] px-[10px] py-[5px] w-[500px] h-[60px] border-none"
+        className="bg-[#BBE7F6] rounded-[10px] px-[10px] py-[5px] w-full max-w-[500px] h-[40px] sm:h-[60px] border-none"
       />
     </div>
   );
