@@ -10,3 +10,12 @@
   margin: 0;
   padding: 0;
 }
+
+/* Breakpoints customizados */
+@media (min-width: 2000px) { /* xs */ }
+@media (min-width: 2000px) { /* sm */ }
+@media (min-width: 2000px) { /* md */ }
+@media (min-width: 2000px) { /* lg */ }
+@media (min-width: 2000px) { /* xl */ }
+@media (min-width: 2000px) { /* 2xl */ }
+@media (min-width: 2000px) { /* 4k */ }
