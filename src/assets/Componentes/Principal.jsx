@@ -609,7 +609,8 @@ export default function Principal() {
   const listarFornecedores = async () => {
     const token = localStorage.getItem("token");
 
-    const url = "https://financeiro-production-2b89.up.railway.app/fornecedores/listar/ativos";
+    const url =
+      "https://financeiro-production-2b89.up.railway.app/fornecedores/listar/ativos";
     try {
       const response = await axios.get(url, {
         headers: {
@@ -631,7 +632,8 @@ export default function Principal() {
 
   const cadastrarFornecedor = async () => {
     const token = localStorage.getItem("token");
-    const url = "https://financeiro-production-2b89.up.railway.app/fornecedores/adicionar";
+    const url =
+      "https://financeiro-production-2b89.up.railway.app/fornecedores/adicionar";
 
     try {
       await axios.post(
@@ -733,7 +735,8 @@ export default function Principal() {
   const listarClientes = async () => {
     const token = localStorage.getItem("token");
 
-    const url = "https://financeiro-production-2b89.up.railway.app/clientes/listar/ativos";
+    const url =
+      "https://financeiro-production-2b89.up.railway.app/clientes/listar/ativos";
     try {
       const response = await axios.get(url, {
         headers: {
@@ -755,7 +758,8 @@ export default function Principal() {
 
   const cadastrarCliente = async () => {
     const token = localStorage.getItem("token");
-    const url = "https://financeiro-production-2b89.up.railway.app/clientes/adicionar";
+    const url =
+      "https://financeiro-production-2b89.up.railway.app/clientes/adicionar";
 
     try {
       await axios.post(
@@ -853,17 +857,17 @@ export default function Principal() {
     listarClientes();
   }, []);
 
-useEffect(() => {
-  alertaVencimentos();
-  alterarVencimento();
+  useEffect(() => {
+    alertaVencimentos();
+    alterarVencimento();
 
-  const jaAvisou = localStorage.getItem("avisouLimite");
+    const jaAvisou = localStorage.getItem("avisouLimite");
 
-  if (!jaAvisou) {
-    avisoLimiteAtingido();
-    localStorage.setItem("avisouLimite", "true");
-  }
-}, []);
+    if (!jaAvisou) {
+      avisoLimiteAtingido();
+      localStorage.setItem("avisouLimite", "true");
+    }
+  }, []);
 
   useEffect(() => {
     listarMovimentacoes();
@@ -879,12 +883,12 @@ useEffect(() => {
     <div className="bg-[#ACBAFF] min-h-screen">
       <div>
         {sucesso && (
-          <div className="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 w-[300px] h-[100px]">
+          <div className="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 w-[300px] sm:w-[350px] md:w-[400px] h-[100px]">
             <AlertaSucesso mensagem={mensagemSucesso} />
           </div>
         )}
         {alertaErro && (
-          <div className="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 w-[300px] h-[100px]">
+          <div className="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 w-[300px] sm:w-[350px] md:w-[400px] h-[100px]">
             <AlertaErro mensagem={mensagemErro} />
           </div>
         )}
@@ -895,12 +899,12 @@ useEffect(() => {
           usuario={localStorage.getItem("nomeUsuario")}
         />
       </div>
-
       <Header />
-      <div className="flex justify-between">
-        <div className="flex justify-start p-[30px]">
+
+      <div className="flex flex-col md:flex-row justify-between items-center sm:px-[15px] md:px-[20px] pt-[20px] pb-[40px] py-[20px] w-full gap-4 md:gap-0">
+        <div className="flex justify-start flex-shrink-0 ml-0 md:ml-[20px] w-full md:w-auto">
           <BotaoSecundario
-            className="text-[#FFFFFF] bg-[#726AE4] hover:bg-[#726AE4]"
+            className="text-[#FFFFFF] bg-[#726AE4] hover:bg-[#726AE4] text-sm sm:text-base md:text-lg px-4 py-2 sm:px-6 sm:py-3 whitespace-nowrap w-full md:w-auto text-center"
             onClick={() => {
               setTipoCategoria("");
               setAdicionarMovimentacao(true);
@@ -911,42 +915,44 @@ useEffect(() => {
           </BotaoSecundario>
         </div>
 
-        <div className="flex">
-          <div className="flex justify-start p-[30px]">
-            <BotaoPrincipal
-              onClick={() => setContarPaginas((p) => Math.max(p - 1, 0))}
-              className="flex flex-row items-center justify-center gap-2 text-[#FFFFFF] bg-[#FFCE58] disabled:opacity-50"
-              disabled={contarPaginas === 0}
-            >
-              <img src="/IconVoltar.png" alt="Voltar" />
-            </BotaoPrincipal>
-          </div>
+        <div className="flex items-center justify-center gap-[10px] sm:gap-[20px] md:gap-[30px] flex-shrink-0 w-full md:w-auto">
+          <BotaoPrincipal
+            onClick={() => setContarPaginas((p) => Math.max(p - 1, 0))}
+            className="flex items-center justify-center gap-[10px] text-[#FFFFFF] bg-[#FFCE58] disabled:opacity-50 px-[10px] py-[5px] sm:px-[15px] sm:py-[10px] w-full md:w-auto"
+            disabled={contarPaginas === 0}
+          >
+            <img
+              src="/IconVoltar.png"
+              alt="Voltar"
+              className="w-4 h-4 sm:w-5 sm:h-5"
+            />
+          </BotaoPrincipal>
 
-          <div className="flex justify-start p-[30px] translate-y-[20px]">
-            <p className="font-[Poppins] font-bold text-[40px] text-[#FFFFFF] translate-y-[-15px]">
-              {contarPaginas + 1}/{totalPaginas}
-            </p>
-          </div>
+          <p className="font-[Poppins] font-bold text-[24px] sm:text-[32px] md:text-[40px] text-[#FFFFFF] whitespace-nowrap text-center">
+            {contarPaginas + 1}/{totalPaginas}
+          </p>
 
-          <div className="flex justify-start p-[30px]">
-            <BotaoPrincipal
-              onClick={() =>
-                setContarPaginas((p) => Math.min(p + 1, totalPaginas - 1))
-              }
-              className="flex flex-row items-center justify-center gap-2 text-[#FFFFFF] bg-[#FFCE58] disabled:opacity-50"
-              disabled={contarPaginas >= totalPaginas - 1}
-            >
-              <img src="/IconSeguir.png" alt="Seguir" />
-            </BotaoPrincipal>
-          </div>
+          <BotaoPrincipal
+            onClick={() =>
+              setContarPaginas((p) => Math.min(p + 1, totalPaginas - 1))
+            }
+            className="flex items-center justify-center gap-2 text-[#FFFFFF] bg-[#FFCE58] disabled:opacity-50 px-3 py-2 sm:px-4 sm:py-3 w-full md:w-auto"
+            disabled={contarPaginas >= totalPaginas - 1}
+          >
+            <img
+              src="/IconSeguir.png"
+              alt="Seguir"
+              className="w-4 h-4 sm:w-5 sm:h-5"
+            />
+          </BotaoPrincipal>
         </div>
 
-        <div className="flex justify-start p-[30px]">
+        <div className="flex justify-end flex-shrink-0 min-w-[80px] sm:min-w-[100px] mr-0 md:mr-[20px] w-full md:w-auto">
           <BotaoSecundario
-            className="flex flex-row items-center justify-center gap-2 text-[#FFFFFF] bg-[#726AE4]"
+            className="flex items-center justify-center gap-2 text-[#FFFFFF] bg-[#726AE4] text-sm sm:text-base md:text-lg px-4 py-2 sm:px-6 sm:py-3 whitespace-nowrap w-full md:w-auto text-center"
             onClick={() => setModalFiltroAberto(true)}
           >
-            <span>FILTRAR</span>
+            FILTRAR
           </BotaoSecundario>
         </div>
       </div>
