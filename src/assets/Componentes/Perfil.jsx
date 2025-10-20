@@ -140,7 +140,12 @@ export default function PerfilUsuario() {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between gap-6 mx-auto mt-6 max-w-[95%] sm:max-w-[1700px] -translate-y-5 md:translate-y-[-220px] ml-[40px]">
+      <div
+        className="flex flex-col md:flex-row justify-between gap-6 px-4 md:px-0 mt-6 max-w-[95%] sm:max-w-[1700px] 
+            -translate-y-5 md:translate-y-[-220px] 
+            mx-auto md:mx-0 md:ml-[100px] mr-[60px] md:mr-0"
+      >
+        {/* 1. Cartão: Acesso e Segurança */}
         <div className="bg-[#FFFFFF] rounded-[20px] shadow-md hover:shadow-lg transition-shadow flex-1 w-full md:w-[530px] md:h-[190px] p-[10px] mt-[20px]">
           <div className="pt-[25px] flex justify-between">
             <span className="font-[Poppins] text-[20px] font-semibold ml-[40px]">
@@ -160,6 +165,7 @@ export default function PerfilUsuario() {
           </div>
         </div>
 
+        {/* 2. Cartão: Início da Jornada */}
         <div className="bg-[#FFFFFF] rounded-[20px] shadow-md hover:shadow-lg transition-shadow flex-1 w-full md:w-[530px] md:h-[190px] p-[10px] mt-[20px]">
           <div className="pt-[25px] flex justify-between">
             <span className="font-[Poppins] text-[20px] font-semibold ml-[40px]">
@@ -179,6 +185,7 @@ export default function PerfilUsuario() {
           </div>
         </div>
 
+        {/* 3. Cartão: Meus Cartões */}
         <div className="bg-[#FFFFFF] rounded-[20px] shadow-md hover:shadow-lg transition-shadow flex-1 w-full md:w-[530px] md:h-[190px] p-[10px] mt-[20px]">
           <div className="pt-[25px] flex justify-between">
             <span className="font-[Poppins] text-[20px] font-semibold ml-[40px]">
