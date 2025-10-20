@@ -60,30 +60,36 @@ export const TabelaTransacoes = () => {
   }, []);
 
   return (
-    <div className="mt-[50px] ml-[100px] mr-[100px] font-['Poppins']">
+    <div className="mt-[50px] ml-[50px] mr-[50px] sm:mx-[10px] font-['Poppins']">
       {movimentacoes.map((mov, index) => (
         <div
           key={index}
-          className="flex items-center gap-[10px] mt-[40px] cursor-pointer rounded-[10px] 
-                     hover:translate-y-[-5px] hover:shadow-[0px_8px_8px_rgba(0,0,0,0.25)] 
-                     hover:p-[15px] duration-300"
+          className="flex items-center gap-[10px] mt-[30px] cursor-pointer rounded-[10px] 
+                   hover:translate-y-[-5px] hover:shadow-[0px_8px_8px_rgba(0,0,0,0.25)] 
+                   hover:p-[12px] duration-300
+                   sm:flex-col sm:items-start sm:p-[8px]"
         >
-          {mov.tipo === "DESPESA" ? <SvgDespesa /> : <SvgReceita />}
+          {/* Ícone */}
+          <div className="sm:mb-2">
+            {mov.tipo === "DESPESA" ? <SvgDespesa /> : <SvgReceita />}
+          </div>
 
-          <div className="flex-1 flex flex-col">
-            <span className="text-[25px] font-semibold">{mov.descricao}</span>
-            <span className="text-[15px] text-gray-500">
+          <div className="flex-1 flex flex-col sm:w-full">
+            <span className="text-[22px] font-semibold sm:text-[16px]">
+              {mov.descricao}
+            </span>
+            <span className="text-[14px] text-gray-500 sm:text-[12px]">
               {mov.categoria} - {mov.data}
             </span>
           </div>
 
-          <div className="w-[120px] text-right">
+          <div className="w-[100px] text-right sm:w-full sm:text-left sm:mt-2">
             {mov.tipo === "DESPESA" ? (
-              <span className="text-[#DC2626] text-[25px] font-semibold">
+              <span className="text-[#DC2626] text-[22px] font-semibold sm:text-[18px]">
                 -R${mov.valor}
               </span>
             ) : (
-              <span className="text-[#16A34A] text-[25px] font-semibold">
+              <span className="text-[#16A34A] text-[22px] font-semibold sm:text-[18px]">
                 +R${mov.valor}
               </span>
             )}
